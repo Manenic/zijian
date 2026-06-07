@@ -9,21 +9,9 @@
 
 ## 安装
 
-### 方式一：全局安装（推荐）
-
-将 `.claude/skills/zijian/` 目录复制到你的 Claude Code skills 目录：
-
 ```bash
-# Windows（以管理员身份打开 PowerShell 或 CMD）
-xcopy /E /I .claude\skills\zijian C:\Users\你的用户名\.claude\skills\zijian
-
-# macOS / Linux
-cp -r .claude/skills/zijian ~/.claude/skills/zijian
+npx skills add https://github.com/Manenic/zijian --skill zijian
 ```
-
-### 方式二：项目级安装
-
-将 `.claude/skills/zijian/` 目录放到你项目的 `.claude/skills/` 目录下即可。
 
 ## 使用方法
 
