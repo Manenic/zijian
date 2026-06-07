@@ -14,8 +14,8 @@
 将 `.claude/skills/zijian/` 目录复制到你的 Claude Code skills 目录：
 
 ```bash
-# Windows
-xcopy /E /I .claude\skills\zijian %USERPROFILE%\.claude\skills\zijian
+# Windows（以管理员身份打开 PowerShell 或 CMD）
+xcopy /E /I .claude\skills\zijian C:\Users\你的用户名\.claude\skills\zijian
 
 # macOS / Linux
 cp -r .claude/skills/zijian ~/.claude/skills/zijian
