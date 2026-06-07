@@ -1,0 +1,21 @@
+# Output files
+cover_letter_draft.md
+cover_letter_revised.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
