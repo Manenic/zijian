@@ -122,7 +122,7 @@ curl -s -L --connect-timeout 15 --max-time 30 "<URL>"
 运行脚本，自动将Markdown草稿转换为Word文档：
 
 ```bash
-node .claude/skills/zijian/scripts/md2docx.js cover_letter_draft.md cover_letter.docx
+python .claude/skills/zijian/scripts/md2docx.py cover_letter_draft.md cover_letter.docx
 ```
 
 告知用户：

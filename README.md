@@ -59,35 +59,36 @@ https://cmse.dhu.edu.cn/2026/0430/c14707a375489/page.htm
 
 ### 自动生成Word文档
 
-Skill内置脚本 `scripts/md2docx.js`，自动将Markdown草稿转换为格式化的Word文档：
+Skill内置脚本 `scripts/md2docx.py`，自动将Markdown草稿转换为格式化的Word文档：
 
-```javascript
-// 核心逻辑
-function parseMarkdown(md) {
-  const lines = md.split("\n");
-  const paragraphs = [];
+```python
+# 核心逻辑
+def parse_markdown(md_content):
+    """解析Markdown内容，返回段落列表"""
+    lines = md_content.split("\n")
+    paragraphs = []
+    for line in lines:
+        if line.strip():
+            paragraphs.append(line.strip())
+    return paragraphs
 
-  for (const line of lines) {
-    // 解析Markdown内容，转换为Word段落
-    // 支持链接、文本格式等
-    paragraphs.push(new Paragraph({
-      spacing: { line: 360 },
-      indent: { firstLine: 480 },
-      children: [new TextRun({ text: line, font: "宋体", size: 24 })],
-    }));
-  }
-
-  return paragraphs;
-}
-
-// 生成Word文档
-const doc = new Document({ sections: [{ children: parseMarkdown(content) }] });
-Packer.toBuffer(doc).then(buffer => fs.writeFileSync("cover_letter.docx", buffer));
+def create_word_document(paragraphs, output_file):
+    """创建Word文档"""
+    doc = Document()
+    for text in paragraphs:
+        p = doc.add_paragraph()
+        p.paragraph_format.first_line_indent = Cm(0.74)  # 首行缩进
+        p.paragraph_format.line_spacing = 1.5  # 1.5倍行距
+        p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY  # 两端对齐
+        run = p.add_run(text)
+        run.font.name = '宋体'
+        run.font.size = Pt(12)
+    doc.save(output_file)
 ```
 
 使用方式：
 ```bash
-node .claude/skills/zijian/scripts/md2docx.js [input.md] [output.docx]
+python .claude/skills/zijian/scripts/md2docx.py [input.md] [output.docx]
 ```
 
 ## 许可证
