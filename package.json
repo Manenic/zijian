@@ -1,0 +1,24 @@
+{
+  "name": "readmehhh",
+  "version": "1.0.0",
+  "description": "一个 Claude Code Skill，帮助学生快速生成课题组自荐信。",
+  "main": "generate_letter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manenic/zijian.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Manenic/zijian/issues"
+  },
+  "homepage": "https://github.com/Manenic/zijian#readme",
+  "dependencies": {
+    "docx": "^9.7.1"
+  }
+}

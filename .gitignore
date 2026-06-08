@@ -1,6 +1,8 @@
 # Output files
 cover_letter_draft.md
 cover_letter_revised.md
+cover_letter.docx
+~$*.docx
 
 # OS files
 .DS_Store

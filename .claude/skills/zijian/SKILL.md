@@ -117,8 +117,16 @@ curl -s -L --connect-timeout 15 --max-time 30 "<URL>"
 
 将草稿保存为 `cover_letter_draft.md`，路径为当前工作目录。
 
+### Step 7: 生成Word文档
+
+运行脚本，自动将Markdown草稿转换为Word文档：
+
+```bash
+node .claude/skills/zijian/scripts/md2docx.js cover_letter_draft.md cover_letter.docx
+```
+
 告知用户：
-"草稿已保存到 cover_letter_draft.md，您可以在此基础上修改。如果修改完想让我帮您检查，再次调用 /zijian 并把草稿发给我即可。"
+"草稿已保存到 cover_letter_draft.md，Word文档已生成到 cover_letter.docx。您可以在此基础上修改。如果修改完想让我帮您检查，再次调用 /zijian 并把草稿发给我即可。"
 
 ---
 
