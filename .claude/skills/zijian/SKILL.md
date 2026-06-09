@@ -119,11 +119,25 @@ curl -s -L --connect-timeout 15 --max-time 30 "<URL>"
 
 ### Step 7: 生成Word文档
 
-运行脚本，自动将Markdown草稿转换为Word文档：
+先定位脚本路径，再运行转换。按以下顺序查找 `md2docx.py`：
+
+1. 如果本次会话的 skill 基础目录已知（系统消息中提供），使用 `<skill基础目录>/scripts/md2docx.py`
+2. 否则，运行 `find ~/.claude -name "md2docx.py" -path "*/zijian/*" 2>/dev/null` 查找
+3. 如果找不到，提示用户手动运行 `pip install python-docx` 后用内联 Python 脚本完成转换
+
+找到脚本后运行：
 
 ```bash
-python .claude/skills/zijian/scripts/md2docx.py cover_letter_draft.md cover_letter.docx
+python <找到的脚本路径> cover_letter_draft.md cover_letter.docx
 ```
+
+如果 `python-docx` 未安装导致报错，先执行：
+
+```bash
+pip install python-docx -q
+```
+
+然后重新运行脚本。
 
 告知用户：
 "草稿已保存到 cover_letter_draft.md，Word文档已生成到 cover_letter.docx。您可以在此基础上修改。如果修改完想让我帮您检查，再次调用 /zijian 并把草稿发给我即可。"
